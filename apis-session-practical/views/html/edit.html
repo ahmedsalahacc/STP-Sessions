@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Todo App</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right, rgb(62, 62, 247), rgb(74, 201, 163));
+            background-position: center;
+            background-size: contain;
+
+        }
+
+
+        .container {
+            width: 75%;
+            border-radius: .35rem;
+            padding: 1rem 1rem;
+        }
+
+
+
+        .title {
+            text-align: center;
+        }
+
+        .white {
+            background-color: rgb(255, 255, 255);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Edit Task</h1>
+        <div class="container">
+            <div class="container white">
+                <div>
+                    <form action="/edit/{{task.id}}" method="post">
+                        <input type='text' id="task" class="text" name='task' value="{{task.task}}">
+                    
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

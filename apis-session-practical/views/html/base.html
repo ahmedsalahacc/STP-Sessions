@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Todo App</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right, rgb(62, 62, 247), rgb(74, 201, 163));
+            background-position: center;
+            background-size: contain;
+
+        }
+
+        .a-effects {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container-index {
+            width: 75%;
+            border-radius: .35rem;
+            padding: 1rem 1rem;
+        }
+
+
+        .field {
+            width: 93%;
+            border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+            display: inline;
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .white {
+            background-color: rgb(255, 255, 255);
+        }
+
+        .field-edit{
+            width: 100%;
+            border: 1px solid rgb(0,0,0,0.1) ;
+            /* border-bottom:1px solid rgb(0,0,0,0.1); */
+        }
+
+        .submit {
+            float: right;
+            border: 0;
+            text-align: center;
+            display: flex;
+            color: green;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background-color: white;
+        }
+
+        .fa-trash {
+            color: red;
+            float: right
+        }
+
+        .submit-edit{
+            margin-left: 78%;
+        }
+
+        .edit-area {
+            background-color: rgb(255, 255, 255);
+            margin: 3% 20%;
+            padding: 2% 2%;
+            border-radius: 1rem;
+        }
+
+        .delete{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+{% block head %}
+{% endblock %}
+
+</body>
+
+</html>

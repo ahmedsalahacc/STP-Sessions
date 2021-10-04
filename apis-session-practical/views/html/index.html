@@ -1,80 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Todo App</title>
-    <style>
-        body{
-            background-image: linear-gradient(to right,rgb(62, 62, 247),rgb(74, 201, 163));
-            background-position: center;
-            background-size: contain;
-            
-        }
+{%extends "base.html" %}
 
-        a{
-            text-decoration: none;
-            color:black;
-        }
-
-        .container{
-            width: 75%;
-            border-radius: .35rem;
-            padding: 1rem 1rem;
-        }
-
-
-        .field{
-            width: 95%;
-            border:1px solid rgb(0,0,0,0.4);
-            display: inline;
-            margin-bottom: 1rem;
-        }
-
-        .title{
-            text-align: center;
-        }
-
-        .white{
-            background-color: rgb(255, 255, 255);
-        }
-        .submit{
-            float:right;
-            border: 0;
-            text-align: center;
-            background-color: green;
-            color: white;
-            font-weight: 900;
-            font-size: 1.5rem;
-            padding-bottom: 2px;
-        }
-
-
-
-        .fa-trash{
-            color:red;
-            float:right
-        }
-
-        
-
-    </style>
-</head>
-<body>
-    <div class="container">
+{% block head %}
+        <div class="container container-index">
         <h1 class="title">Todo App</h1>
-        <div class="container">
-            <div class="container white">
+        <div class="container container-index">
+            <div class="container container-index white">
                 <div>
                     <form action="/" method="post">
-                        <input type="text" id="task" name='task' class="form-control field" placeholder="Add a todo ...">
-                        <input type="submit" class="submit" value="+">
+                        <input type="text" id="task" name='task' class="form-control field" required placeholder="Add a todo ...">
+                        <button type="submit" class="submit">
+                            <i class="fas fa-plus"></i>
+                        </button>
                     </form>
                 </div>
                 <ol class="list-group list-group-numbered">
@@ -84,8 +20,8 @@
                     {% else %}
                         {% for task in tasks%}
                             <li class="list-group-item">
-                                <a href="/edit/{{task.id}}">{{task.task}}</a>
-                                <a href="/delete/{{task.id}}">
+                                <a class="a-effects" href="/edit/{{task.id}}">{{task.task}}</a>
+                                <a class="a-effects" href="/delete/{{task.id}}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </li>
@@ -98,6 +34,4 @@
         </div>
         
     </div>
-
-</body>
-</html>
+{%endblock%}

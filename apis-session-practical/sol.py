@@ -10,9 +10,8 @@ main = Blueprint('main', __name__, )
 @main.route('/', methods=['GET'])
 def getIndex():
     try:
-        tasks = Todo.getAll()
         # retrieve all items from database
-
+        tasks = Todo.getAll()
     except:
         return 500
 
@@ -26,7 +25,6 @@ def postIndex():
         task = request.form.get('task')
         # insert item to database
         Todo.insert(task)
-
     except:
         return 500
 
@@ -36,10 +34,8 @@ def postIndex():
 @main.route('/edit/<id>', methods=['GET'])
 def getEdit(id):
     try:
-
         # get item from database by id
         task = Todo.get(id)
-
     except:
         return 500
 
@@ -52,10 +48,8 @@ def putEdit(id):
     try:
         # get the new task from request form dict
         task = request.form.get('task')
-
         # update database of specific record
         Todo.update(id, task)
-
     except:
         return 500
 
@@ -68,15 +62,7 @@ def deleteTask(id):
     try:
         # delete specific record by id
         Todo.delete(id)
-
     except:
         return 500
 
     return redirect('/')
-
-
-@main.errorhandler(500)
-def handle_500(err):
-    return {
-        'err', err
-    }, 500

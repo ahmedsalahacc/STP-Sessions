@@ -1,0 +1,10 @@
+# ignore venv files
+/env
+/env/*
+
+# ignore pycache files
+*/__pycache__
+*/__pycache__/*
+
+# Uncomment to not track db files
+# *.db   #-- UNCOMMENT THIS

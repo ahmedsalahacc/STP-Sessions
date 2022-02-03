@@ -7,25 +7,24 @@ main = Blueprint('main', __name__, )
 #-- endpoints --#
 
 # @TODO make an endpoint to display all todos
-@main.route('/', methods=['GET'])
+@main.route('/home', methods=['GET'])
 def getIndex():
     try:
-        tasks = Todo.getAll()
+        pass
         # retrieve all items from database
 
     except:
         return 500
 
-    return render_template('index.html', tasks=tasks)
+    return render_template('index.html', tasks=None)
 
 # @TODO make save a todo to database
 @main.route('/', methods=['POST'])
 def postIndex():
     try:
+        pass
         # get the task from request form dict
-        task = request.form.get('task')
         # insert item to database
-        Todo.insert(task)
 
     except:
         return 500
@@ -36,25 +35,23 @@ def postIndex():
 @main.route('/edit/<id>', methods=['GET'])
 def getEdit(id):
     try:
-
+        pass
         # get item from database by id
-        task = Todo.get(id)
 
     except:
         return 500
 
-    return render_template('edit.html', task=task)
+    return render_template('edit.html', task=None)
 
 
 # @TODO make an endpoint edit todo
 @main.route('/edit/<id>', methods=['POST'])
 def putEdit(id):
     try:
+        pass
         # get the new task from request form dict
-        task = request.form.get('task')
 
         # update database of specific record
-        Todo.update(id, task)
 
     except:
         return 500
@@ -66,8 +63,8 @@ def putEdit(id):
 @main.route('/delete/<id>', methods=['GET'])
 def deleteTask(id):
     try:
+        pass
         # delete specific record by id
-        Todo.delete(id)
 
     except:
         return 500

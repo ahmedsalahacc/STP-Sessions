@@ -1,2 +1,2 @@
 # STP-Sessions
-This Repository includes all the session templates of the Web/Cloud sessions provided by STP.
+This Repository includes all the session templates of the Web/Cloud sessions that I lectured in STP.

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, redirect, url_for
 from flask_cors import CORS
 
 from services.models import db
@@ -49,14 +49,14 @@ def index():
     '''
     route to the index page (/)
     '''
-    return "hello"
+    return render_template('index.html')
 
 # -- User routes
 
 
 @app.route('/users/register')
 def reg_page():
-    pass
+    return render_template('registration.html')
 
 
 @app.route('/users', methods=['POST'])
@@ -66,7 +66,7 @@ def add_user():
 
 @app.route('/users', methods=['GET'])
 def get_users():
-    pass
+    return render_template('users.html')
 
 
 @app.route('/users', methods=['DELETE'])
@@ -74,43 +74,47 @@ def delete_users():
     pass
 
 
-@app.route('/users', methods=['DELETE'])
+@app.route('/users', methods=['PUT'])
 def update_users():
     pass
 
 # -- Jokes routes
 
 
-@app.route('/jokes', method=['GET'])
-def pick_joke():
-    pass
+@app.route('/jokes/add', methods=['GET'])
+def add_jokes_page():
+    return render_template('addJokeForm.html')
 
 
-@app.route('/jokes', method=['POST'])
+@app.route('/jokes', methods=['POST'])
 def add_joke():
     pass
 
 
-@app.route('/jokes', method=['DELETE'])
-def delete_joke():
-    pass
-
-
-@app.route('/jokes', method=['PUT'])
-def update_joke():
-    pass
-
-
-##### BONUS SECTION #####
-# @TODO get the jokes associated with a specific user
+#### Assignments ####
+# @TODO Assignment
 '''
     NOTE Advanced topic ⚠: Databases
     ----
-    It will require you to dig a little deeper in database so search
+    It will require you to dig a little deeper in database so, search
     for the following
     * Database referrentials
     * Foreign keys in flask sqlalchemy
 '''
+# @app.route('/<userid>/jokes', methods=['GET'])
+# def get_user_jokes():
+#     pass
+
+# @app.route('/<userid>/jokes', methods=['DELETE'])
+# def delete_joke():
+#     pass
+
+# @app.route('/<userid>/jokes', methods=['PUT'])
+# def update_joke():
+#     pass
+
+
+##### BONUS SECTION #####
 
 # @TODO allow jokes review from a specific user authority
 '''

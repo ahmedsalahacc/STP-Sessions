@@ -1,0 +1,60 @@
+{%include 'base.html'%}
+
+{% block body%}
+<div class="container" style="margin: auto 50;">
+    <h1 class="text-dark text-center">My Jokes</h1>
+    <br>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        
+    {%if jokes|length > 0%}
+    <div style="max-height: 40vh; overflow-y: scroll;">
+    
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Joke</th>
+                <th scope="col">Date</th>
+                <th scope="col">Ops</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for joke in jokes%}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{joke.joke[:20]}}...</td>
+                <td>{{joke.date_created.date()}}</td>
+                <td><a href="/jokes/{{joke.id}}/edit" class="mx-1"><i class="fas fa-edit text-priamry"></i></a> 
+                    <a href="/jokes/{{joke.id}}/delete"><i class="fas fa-trash text-danger"></i></a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
+    {%else%}
+    <div class="alert alert-danger col-lg-6" role="alert">
+        You are no joker... Try fillin some jokes!
+    </div>
+    {%endif%}
+    </div>
+    <div class="col-lg-3"></div>
+    <br>
+    <br>
+    <div class="row" style="padding: auto 50;">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form action="/jokes" method="POST">
+                <textarea class="form-control " name="joke" id="exampleFormControlTextarea1" rows="3" placeholder="insert joke here"></textarea>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-danger">Add Joke🔥</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+        
+    </div>
+</div>
+
+{%endblock%}

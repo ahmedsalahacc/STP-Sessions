@@ -1,0 +1,40 @@
+{%include 'base.html'%}
+
+{% block body%}
+<div class="container" style="margin:10vh auto;">
+    <h1 class="text-center text-light">Login to add a Joke</h1>
+    <br>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form method="POST" action="/users/login">
+                <div class="row">
+                  
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                aria-describedby="emailHelp" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <button type="submit" class="btn btn-success float-left" style="width: 100%;">Login</button>
+                </div>
+                <div class="d-flex flex-row-reverse justify-content-between">
+                    <a href="/user/register" class="btn btn-md btn-link align-self-end text-dark">register</a>
+                    <a href="#" class="btn btn-md btn-link float-right text-dark">Edit account</a>
+                </div>   
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+{%endblock%}

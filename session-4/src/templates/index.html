@@ -2,30 +2,26 @@
 
 {% block body%}
 <div class="container" style="
-        margin: 12vh auto;
+        margin: 10vh auto;
         ">
     <div class="container text-center">
-        
     </div>
-    <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
-                <div class="row text-center">
+                <div class="row text-center text-light">
                     <h1>Jokey Dokey</h1>
-                    <h6>If you want to break your mood, just press the button below!</h6>
-                </div>
-                <div class="row">
-                    
+                    <h6>If you want to break your mood, just press the button below👇</h6>
                 </div>
                 <div class="alert alert-danger text-center" role="alert">
                 <strong>⚠ Alert: Ur gonna die laughing !</strong> 
                 <br>
-                <a href="" class="btn btn-lg btn-danger text-center">Click Me!</a>
+                <a href="/genjoke" class="btn btn-lg btn-danger text-center">Click Me!</a>
             </div></div>
             <div class="col-lg-4"></div>
         </div>
+        {%if joke%}
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
@@ -35,8 +31,7 @@
                     <div class="card-body bg-warning" id="joke-card">
                         <h5 class="card-title">Incomin Joke</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Joke #</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                            content.</p>
+                        <p class="card-text"><strong>{{joke}}</strong></p>
                         <!-- @TODO for BONUS Section -->
                         <a href="#" class="card-link text-success"><i class="fas fa-thumbs-up"></i></a>
                         <a href="#" class="card-link text-danger"><i class="fas fa-thumbs-down"></i></a>
@@ -45,6 +40,7 @@
             </div>
             <div class="col-lg-4"></div>
         </div>
+        {%endif%}
     </div>
 </div>
 {%endblock%}

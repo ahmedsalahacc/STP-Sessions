@@ -1,5 +1,37 @@
 {%include 'base.html'%}
 
 {% block body%}
-<h1>Registration</h1>
+<div class="container" style="margin:10vh auto;">
+<h1 class="text-center text-light">Register to Jokey Dockey</h1>
+<br>
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <form method="POST" action="/users/register">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Register 😎</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+</div>
 {%endblock%}

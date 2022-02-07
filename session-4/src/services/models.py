@@ -30,6 +30,15 @@ class User(db.Model):
 
     @classmethod
     def insert(self, name, username, password):
+        '''
+        inserts user to the database
+
+        Parameters:
+        -----------
+        name: string
+        username: string
+        password: string
+        '''
         user = User(name=name, username=username, password=password)
 
         # add to db and commit
@@ -38,6 +47,16 @@ class User(db.Model):
 
     @classmethod
     def update(self, id, name, username, password):
+        '''
+        updates user record with id=id with the new record
+
+        Parameters
+        ----------
+        id: int
+        name: string
+        username: string
+        password: string
+        '''
         query = self.query.filter_by(id=id).first()
 
         # update values
@@ -50,16 +69,49 @@ class User(db.Model):
 
     @classmethod
     def getUser(self, id):
+        '''
+        gets the user by id
+
+        Parameters:
+        -----------
+        id: int
+
+        Returns:
+        -------
+        query: user object
+        '''
         query = self.query.filter_by(id=id).first()
         return query
 
     @classmethod
     def getByUsername(self, username):
+        '''
+        gets user by username
+
+        Parameters:
+        -----------
+        username: string
+
+        Returns:
+        --------
+        query: user object
+        '''
         query = self.query.filter_by(username=username).first()
         return query
 
     @classmethod
     def getUserJokes(self, username):
+        '''
+        gets jokes associated with username
+
+        Parameters:
+        ----------
+        username: string
+
+        Returns:
+        --------
+        jokes: list of joke objects
+        '''
         query = self.query.filter_by(username=username).first()
         jokes = query.jokes
 
@@ -67,6 +119,9 @@ class User(db.Model):
 
     @classmethod
     def getUserId(self, username):
+        '''
+        get id associated with the given username
+        '''
         id = self.query.filter_by(username=username).first().id
         return id
 
@@ -87,6 +142,14 @@ class Joke(db.Model):
 
     @classmethod
     def insert(self, joke, user_id):
+        '''
+        insert joke into db
+
+        Parameters:
+        -----------
+        joke: string
+        user_id: int
+        '''
         joke = Joke(joke=joke, user_id=user_id)
 
         # add to db and commit
@@ -95,6 +158,14 @@ class Joke(db.Model):
 
     @classmethod
     def update(self, id, joke):
+        '''
+        updates existing joke record
+
+        Parameters:
+        -----------
+        id: int
+        joke: string
+        '''
         query = self.query.get(id)
 
         # update values in query
@@ -106,6 +177,13 @@ class Joke(db.Model):
 
     @classmethod
     def getRandomJoke(self):
+        '''
+        gets a random joke from the database
+
+        Returns
+        -------
+        joke: string
+        '''
         # get all jokes
         query = self.query.all()
         sz = len(query)
@@ -116,12 +194,26 @@ class Joke(db.Model):
 
     @classmethod
     def delete(self, id):
+        '''
+        deletes joke with id=id from the database
+
+        Parameters:
+        ----------
+        id: integer
+        '''
         query = self.query.get(id)
         db.session.delete(query)
         db.session.commit()
 
     @classmethod
     def get(self, id):
+        '''
+        gets joke with id=id
+
+        Parameters:
+        -----------
+        id: Integer
+        '''
         query = self.query.get(id)
 
         return query
